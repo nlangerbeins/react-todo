@@ -4,6 +4,7 @@ import AddTodoForm from './AddTodoForm';
 
 function App() {
   const [todoList, setTodoList] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const fetchData = () =>
     new Promise((resolve, reject) =>
@@ -21,11 +22,14 @@ function App() {
   React.useEffect(() => {
     fetchData().then((result) => {
       setTodoList(result.data.todoList);
+      setIsLoading(false);
     });
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem('savedTodoList', JSON.stringify(todoList));
+    if (!isLoading) {
+      localStorage.setItem('savedTodoList', JSON.stringify(todoList));
+    }
   }, [todoList]);
 
   function addTodo(newTodo) {
