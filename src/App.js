@@ -2,7 +2,7 @@ import React from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 
-function App() {
+const App = () => {
   const [todoList, setTodoList] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -32,9 +32,9 @@ function App() {
     }
   }, [todoList, isLoading]);
 
-  function addTodo(newTodo) {
+  const addTodo = (newTodo) => {
     setTodoList((prevState) => [...prevState, newTodo]);
-  }
+  };
 
   const removeTodo = (id) => {
     const newList = todoList.filter((item) => item.id !== id);
@@ -52,6 +52,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;
