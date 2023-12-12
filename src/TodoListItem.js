@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoListItem({ todo, onRemoveTodo }) {
+const TodoListItem = ({ todo, onRemoveTodo }) => {
   return (
     <li>
       {todo.title}
@@ -9,6 +9,6 @@ function TodoListItem({ todo, onRemoveTodo }) {
       </button>
     </li>
   );
-}
+};
 
 export default TodoListItem;

@@ -4,16 +4,20 @@ import InputWithLabel from './InputWithLabel';
 const AddTodoForm = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = React.useState('');
 
-  function handleTitleChange(e) {
+  const handleTitleChange = (e) => {
     let newTodoTitle = e.target.value;
     setTodoTitle(newTodoTitle);
-  }
+  };
 
-  function handleAddTodo(e) {
+  const handleAddTodo = (e) => {
     e.preventDefault();
-    onAddTodo({ title: todoTitle, id: Date.now() });
+
+    if (todoTitle === '') {
+      return;
+    }
+    onAddTodo(todoTitle);
     setTodoTitle('');
-  }
+  };
 
   return (
     <form onSubmit={handleAddTodo}>
