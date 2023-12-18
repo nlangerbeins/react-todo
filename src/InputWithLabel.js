@@ -1,6 +1,13 @@
 import React from 'react';
 
-const InputWithLabel = ({ todoTitle, onInputChange, children }) => {
+const InputWithLabel = ({
+  id,
+  name,
+  type = 'text',
+  todoTitle,
+  onInputChange,
+  children,
+}) => {
   const inputRef = React.useRef();
 
   React.useEffect(() => {
@@ -10,10 +17,10 @@ const InputWithLabel = ({ todoTitle, onInputChange, children }) => {
     <>
       <label htmlFor="todoTitle">{children} </label>
       <input
-        id="todoTitle"
-        type="text"
+        id={id}
+        type={type}
         value={todoTitle}
-        name="title"
+        name={name}
         onChange={onInputChange}
         ref={inputRef}
       />
