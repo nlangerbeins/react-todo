@@ -1,6 +1,7 @@
 import React from 'react';
-import AddTodoForm from './AddTodoForm';
-import TodoList from './TodoList';
+import AddTodoForm from '../AddTodoForm/AddTodoForm.js';
+import TodoList from '../TodoList/TodoList.js';
+import style from './ReactTodo.module.css';
 
 const ReactTodo = () => {
   const [todoList, setTodoList] = React.useState([]);
@@ -113,11 +114,11 @@ const ReactTodo = () => {
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
+    <div className={style.container}>
+      <h1 className={style.heading}>To do list</h1>
       <AddTodoForm onAddTodo={addTodo} />
       {isLoading ? (
-        <p>Loading...</p>
+        <p className={style.loading}>Loading...</p>
       ) : (
         <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
       )}

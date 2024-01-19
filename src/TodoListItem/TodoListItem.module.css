@@ -1,0 +1,32 @@
+.ListItem {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  background-color: #454e50;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.ListItem::before {
+  content: url('../media/icon.png');
+  padding-right: 0.5rem;
+}
+
+.btnRemove {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  transition: 0.3s ease-in-out;
+  position: relative;
+}
+
+.btnRemove:hover {
+  background-color: #085560;
+}

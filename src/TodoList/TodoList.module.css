@@ -1,0 +1,13 @@
+.todoList {
+  margin-top: 2rem;
+  display: grid;
+  width: 90%;
+  row-gap: 1rem;
+}
+
+@media screen and (max-width: 560px) {
+  .todoList {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+}
