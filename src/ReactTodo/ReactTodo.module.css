@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto;
+  padding: 2rem;
+  max-width: 35rem;
+  min-height: 90vh;
+  width: 100%;
+  border-radius: 30px;
+  border: 5px solid #10aec8;
+  box-shadow: 2px 5px 5px grey;
+  position: relative;
+}
+
+.container:before {
+  content: '';
+  background-color: rgba(141, 141, 141, 0.8);
+  border-radius: 25px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.7;
+  position: absolute;
+}
+
+.heading {
+  font-size: 3.5rem;
+  margin: 1rem 0 1rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px #323232;
+  position: relative;
+}
+
+.loading {
+  margin: 3rem;
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 0.5rem;
+  }
+  .heading {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+  }
+}

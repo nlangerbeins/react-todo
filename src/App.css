@@ -1,0 +1,17 @@
+*,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f4f6f6;
+  background-image: url(/src/media/background.jpg);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 40%;
+  background-attachment: fixed;
+  min-height: 100vh;
+}

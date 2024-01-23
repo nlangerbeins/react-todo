@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './InputWithLabel.module.css';
 
 const InputWithLabel = ({
   id,
@@ -6,7 +7,6 @@ const InputWithLabel = ({
   type = 'text',
   todoTitle,
   onInputChange,
-  children,
 }) => {
   const inputRef = React.useRef();
 
@@ -15,7 +15,6 @@ const InputWithLabel = ({
   });
   return (
     <>
-      <label htmlFor="todoTitle">{children} </label>
       <input
         id={id}
         type={type}
@@ -23,6 +22,8 @@ const InputWithLabel = ({
         name={name}
         onChange={onInputChange}
         ref={inputRef}
+        className={style.formInput}
+        placeholder="Type your new task"
       />
     </>
   );
