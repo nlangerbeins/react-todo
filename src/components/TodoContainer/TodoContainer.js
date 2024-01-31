@@ -1,9 +1,9 @@
 import React from 'react';
 import AddTodoForm from '../AddTodoForm/AddTodoForm.js';
 import TodoList from '../TodoList/TodoList.js';
-import style from './ReactTodo.module.css';
+import style from './TodoContainer.module.css';
 
-const ReactTodo = () => {
+const TodoContainer = () => {
   const [todoList, setTodoList] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -126,4 +126,4 @@ const ReactTodo = () => {
   );
 };
 
-export default ReactTodo;
+export default TodoContainer;
