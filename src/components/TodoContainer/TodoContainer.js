@@ -19,10 +19,11 @@ const TodoContainer = () => {
     };
 
     try {
-      const response = await fetch(
-        `${url}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`,
-        options
-      );
+      // const response = await fetch(
+      //   `${url}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`,
+      //   options
+      // );
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const message = `Error: ${response.status}`;
@@ -30,6 +31,22 @@ const TodoContainer = () => {
       }
 
       const data = await response.json();
+
+      // sort todo
+      data.records.sort((objectA, objectB) => {
+        const titleA = objectA.fields.title.toLowerCase();
+        const titleB = objectB.fields.title.toLowerCase();
+
+        if (titleA === titleB) {
+          return 0;
+        }
+
+        // sort function in ascending order
+        return titleA < titleB ? -1 : 1;
+
+        // sort function in descending order
+        // return titleA < titleB ? 1 : -1;
+      });
 
       const todos = data.records.map((todo) => {
         const newTodo = {
