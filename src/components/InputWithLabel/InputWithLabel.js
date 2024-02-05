@@ -8,6 +8,7 @@ const InputWithLabel = ({
   type = 'text',
   todoTitle,
   onInputChange,
+  placeholder,
 }) => {
   const inputRef = React.useRef();
 
@@ -24,7 +25,7 @@ const InputWithLabel = ({
         onChange={onInputChange}
         ref={inputRef}
         className={style.formInput}
-        placeholder="Type your new task"
+        placeholder={placeholder}
       />
     </>
   );
@@ -36,6 +37,7 @@ InputWithLabel.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
 };
 
 export default InputWithLabel;
