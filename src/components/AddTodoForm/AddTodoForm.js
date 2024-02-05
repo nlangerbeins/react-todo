@@ -28,6 +28,7 @@ const AddTodoForm = ({ onAddTodo }) => {
         name="title"
         todoTitle={todoTitle}
         onInputChange={handleTitleChange}
+        placeholder="Type your new task"
       />
       <button type="submit" className={style.btnAdd}>
         Add

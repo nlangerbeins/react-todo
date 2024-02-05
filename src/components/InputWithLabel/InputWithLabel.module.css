@@ -10,6 +10,10 @@
   font-size: 1rem;
 }
 
+.formInput::placeholder {
+  font-size: 0.875rem;
+}
+
 @media screen and (max-width: 768px) {
   .formInput {
     padding: 0.75rem 0.75rem;
