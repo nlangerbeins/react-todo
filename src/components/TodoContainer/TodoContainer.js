@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
 import AddTodoForm from '../AddTodoForm/AddTodoForm.js';
 import TodoList from '../TodoList/TodoList.js';
 import style from './TodoContainer.module.css';
 
-const TodoContainer = () => {
+const TodoContainer = ({ tableName }) => {
   const [todoList, setTodoList] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [sort, setSort] = React.useState('asc');
 
-  const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${process.env.REACT_APP_TABLE_NAME}`;
+  const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}`;
 
   // get access from Airtable
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const options = {
       method: 'GET',
       headers: {
@@ -24,7 +25,6 @@ const TodoContainer = () => {
         `${url}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=${sort}`,
         options
       );
-      // const response = await fetch(url, options);
 
       if (!response.ok) {
         const message = `Error: ${response.status}`;
@@ -32,22 +32,6 @@ const TodoContainer = () => {
       }
 
       const data = await response.json();
-
-      // sort todo
-      // data.records.sort((objectA, objectB) => {
-      //   const titleA = objectA.fields.title.toLowerCase();
-      //   const titleB = objectB.fields.title.toLowerCase();
-
-      //   if (titleA === titleB) {
-      //     return 0;
-      //   }
-
-      //   // sort function in ascending order
-      //   return titleA < titleB ? -1 : 1;
-
-      //   // sort function in descending order
-      //   // return titleA < titleB ? 1 : -1;
-      // });
 
       const todos = data.records.map((todo) => {
         const newTodo = {
@@ -62,8 +46,9 @@ const TodoContainer = () => {
     } catch (error) {
       console.log(error.message);
     }
-  };
+  }, [sort, url]);
 
+  // sort todo with toggle button
   const handleSort = () => {
     const toggleSort = sort === 'asc' ? 'desc' : 'asc';
     setSort(toggleSort);
@@ -71,7 +56,7 @@ const TodoContainer = () => {
 
   React.useEffect(() => {
     fetchData();
-  }, [sort]);
+  }, [fetchData, sort]);
 
   React.useEffect(() => {
     if (!isLoading) {
@@ -153,6 +138,10 @@ const TodoContainer = () => {
       )}
     </div>
   );
+};
+
+TodoContainer.propTypes = {
+  tableName: PropTypes.string,
 };
 
 export default TodoContainer;
