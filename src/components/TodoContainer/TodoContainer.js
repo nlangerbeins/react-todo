@@ -37,6 +37,7 @@ const TodoContainer = ({ tableName }) => {
         const newTodo = {
           id: todo.id,
           title: todo.fields.title,
+          date: todo.createdTime,
         };
         return newTodo;
       });
@@ -90,7 +91,11 @@ const TodoContainer = ({ tableName }) => {
       }
 
       const resp = await response.json();
-      const newTodo = { id: resp.id, title: resp.fields.title };
+      const newTodo = {
+        id: resp.id,
+        title: resp.fields.title,
+        date: resp.createdTime,
+      };
       setTodoList([...todoList, newTodo]);
     } catch (error) {
       console.log(error.message);
