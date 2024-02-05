@@ -9,17 +9,18 @@
   padding: 0.5rem 3rem;
   font-size: 1.25rem;
   border: transparent;
-  background-color: #0fafc8;
+  background-color: #085560;
   color: #fff;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
   position: relative;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .btnAdd:hover {
-  background-color: #085560;
+  background-color: #043239;
 }
 
 @media screen and (max-width: 768px) {

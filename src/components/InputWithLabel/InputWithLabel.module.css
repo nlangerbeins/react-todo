@@ -8,6 +8,7 @@
   color: #383939;
   position: relative;
   font-size: 1rem;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .formInput::placeholder {
