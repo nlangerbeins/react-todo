@@ -34,10 +34,11 @@
   transition: 0.3s ease-in-out;
   position: relative;
   margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .btnRemove:hover {
-  background-color: #085560;
+  background-color: #043239;
 }
 
 @media screen and (max-width: 560px) {
